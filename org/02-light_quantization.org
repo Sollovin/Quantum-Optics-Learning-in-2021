@@ -1,0 +1,107 @@
+#+TITLE: Section 2: Light Quantization
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[b5paper, landscape, margin=1in]{geometry}
+
+* Light in a 1D cavity
+Because the wave equation is a linear equation, we are able to employ the
+quasi-1D approximation and only consider one mode of the light propagate along
+one direction with polarization along another direction. If the system we are facing
+requires more complicate wave, we can build it from the simple condition we
+considered here, which is guaranteed by the orthogonality between the modes and
+between the different directions.
+
+#+CAPTION: Real cavity
+#+ATTR_LATEX: :width 2in :float
+#+ATTR_HTML: :width 300px
+#+ATTR_ORG: :width 300
+[[../figs/real_optical_cavity.png]]
+#+CAPTION: 1D cavity
+#+ATTR_LATEX: :width 3in :float
+#+ATTR_HTML: :width 600px
+#+ATTR_ORG: :width 600px
+[[../figs/1d-cavity.png]]
+
+The formal solution of mode $k$ of the light which propagates along the z
+direction with polarization along x direction is
+\begin{equation}
+\vec{A} = \hat{e}_{x}\pqty{A_{k}q_{k}(t)e^{ikz}+A_{-k}q_{-k}(t)e^{-ikz}},
+\end{equation}
+So,
+\begin{equation}
+\vec{E} = -\partial_{t}\vec{A} = -\hat{e}_{x}\pqty{A_{k}\dot{q}_{k}(t)e^{ikz}+A_{-k}\dot{q}_{-k}(t)e^{-ikz}},
+\end{equation}
+\begin{equation}
+\vec{B} = \vec{\nabla}\times\vec{A} = -\hat{e}_{y} \pqty{A_{k}kq_{k}(t)e^{ikz}-A_{-k}kq_{-k}(t)e^{-ikz}}.
+\end{equation}
+
+A simple 1D-cavity consisting on two perfectly conducting plane mirrors facing
+each other. Light propagate between the mirrors back and forth which implies
+\begin{equation}
+A_{k} = A_{-k}.
+\end{equation}
+
+The components of the electric field parallel to the conducting mirrors must
+vanish. Taking $z=0$ at the mirror on the left and $z=L$ at the mirror on the
+right.
+
+The $z=0$ boundary condidtions imply
+\begin{equation}
+\vec{E}(0,t) = 0 \Rightarrow A_{k}\dot{q}_{k}(t) = - A_{-k}\dot{q}_{-k}(t) \Rightarrow q_{k}(t) = -q_{-k}(t).
+\end{equation}
+
+The $z=L$ boundary condidtions imply
+\begin{equation}
+\begin{split}
+&\vec{E}(L,t) = 0 \Rightarrow A_{k}\dot{q}_{k}(t)e^{ikL} = - A_{-k}\dot{q}_{-k}(t)e^{-ikL} \\
+\Rightarrow\ &e^{ikL}+e^{-ikL} = i\sin(kL) = 0 \\
+\Rightarrow\ &k = \frac{n\pi}{L}, \qq{with} n\in N. \\
+\end{split}
+\end{equation}
+
+Now we have formal solution
+\begin{equation}
+\vec{A} = \vec{e}_{x} A_{n}q_{n}(t)\sin(k_{n}z),
+\end{equation}
+\begin{equation}
+\vec{E} = -\vec{e}_{x} A_{n}\dot{q}_{n}(t)\sin(k_{n}z),
+\end{equation}
+\begin{equation}
+\vec{B} = \vec{e}_{y} k_{n}A_{n}q_{n}(t)\cos(k_{n}z),
+\end{equation}
+with $k_{n} = n\pi/L$, $n=1, 2, 3,\dots$.
+
+Using the expression above, we calculate the electromagnetc energy as follows
+\begin{equation}
+\begin{split}
+\ &E_{\text{em}}(t) \\
+=\ &\frac{1}{2} \int_{\mathrm{cavity}} \dd^{3}\vec{r} \pqty{\varepsilon_{0}\vec{E}^{2}(z,t) + \frac{1}{\mu_{0}}\vec{B}^{2}(z,t)} \\
+=\ &\small{\frac{1}{2} \int_{\mathrm{cavity}}\dd x\dd y \cdot A_{n}^{2} \pqty{\varepsilon_{0}\dot{q}_{n}^{2}(t)\int_{0}^{L}\dd z \sin^{2}(k_{n}z) + \frac{k_{n}^{2}}{\mu_{0}}q^{2}_{n}(t)\int_{0}^{L}\dd z \cos^{2}(k_{n}z)}} \\
+=\ &\frac{\varepsilon_{0} LS}{4}A_{n}^{2}\pqty{\dot{q}_{n}^{2}(t)+c^{2}k_{n}^{2}q_{n}^{2}(t)},
+\end{split}
+\end{equation}
+in which, we use the mathematical relation
+\begin{equation}
+\int_{0}^{L}\dd z\sin(k_{n}z)\sin(k_{m}z) = \int_{0}^{L}\dd z \cos(k_{n}z)\cos(k_{m}z) = \frac{L}{2}\delta_{nm}.
+\end{equation}
+
+In fact, if we choose more general formal solution $\vec{A} = \hat{e}_{x}\sum_{n=1}^{\infty}A_{n}q_{n}(t)\sin(k_{n}z)$, we will arrive the same
+place,
+\begin{equation}
+\begin{split}
+\ &E_{\text{em}}(t) \\
+=\ &\frac{1}{2} \int_{\mathrm{cavity}} \dd^{3}\vec{r} \pqty{\varepsilon_{0}\vec{E}^{2}(z,t) + \frac{1}{\mu_{0}}\vec{B}^{2}(z,t)} \\
+=\ &\small{\frac{1}{2} \int_{\mathrm{cavity}}\dd x\dd y \cdot \sum_{n,m=1}^{\infty}A_{n}A_{m}\pqty{\varepsilon_{0}\dot{q}_{n}(t)\dot{q}_{m}(t)\int_{0}^{L}\dd z \sin(k_{n}z)\sin(k_{m}z) + \frac{k_{n}k_{m}}{\mu_{0}}q_{n}(t)q_{m}(t)\int_{0}^{L}\dd z \cos(k_{n}z)\cos(k_{m}z)}} \\
+=\ &\frac{\varepsilon_{0} LS}{4}\sum_{n=1}^{\infty}A_{n}^{2}\pqty{\dot{q}_{n}^{2}(t)+c^{2}k_{n}^{2}q_{n}^{2}(t)},
+\end{split}
+\end{equation}
+in which, the $\sin(k_{n}z)\sin(k_{m}z)$ term equals to zero due to the
+orthogonal relation.
+
+If we choose $A_{n}^{2} = 2m_{n}/\varepsilon_{0}LS$, we have
+\begin{equation}
+E_{\mathrm{em}}(t) = \sum_{n=1}^{\infty}\bqty{\frac{p_{n}^{2}(t)}{2m_{n}} + \frac{m_{n}\omega_{n}^{2}}{2}q_{n}^{2}(t)},
+\end{equation}
+in which $m_{n} = \sqrt{A_{n}^{2}\varepsilon_{0}LS/2}$ and $\omega_{n} = ck_{n}$.
+
+* The quantization of the harmonic oscillator

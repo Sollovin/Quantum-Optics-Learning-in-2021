@@ -1,0 +1,25 @@
+#+TITLE: Introduction
+
+* What will we learn?
+1. How to describe light in mathematical language as electromagnetic wave in the
+   classical regime --- the Maxwell's equations and its sollutions.
+2. How to quantize the light and why it's a quantum harmonic oscillator.
+3. How to visualize a quantum state in phase space with the wigner function.
+4. Several states of light in the quantum regime --- the gaussian, coherent,
+   squeezed, thermal states.
+5. How to descibe an atom with a two-level model.
+   a. Bloch equations.
+   b. Rabi oscillations.
+   c. The rotating-wave approximation.
+6. How light interact with an atom in the linear regime --- the Jaynes-Cummings
+   model and dressed states.
+7. How to describe light in an open optical cavity --- the open quantum theory.
+   a. The quantum Langevin equation.
+   b. The quantum master equation.
+   c. ...
+8. How to analyze the light emitted from open systems.
+   a. Photon detection.
+   b. Correlation functions.
+   c. Homodyne detection.
+   d. ...
+9. ...

@@ -1,0 +1,102 @@
+#+TITLE: Section 1: Light as an electromagnetic wave
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[b5paper, landscape, margin=1in]{geometry}
+
+* How to describe a vector field? --- Electric field as an example.
+Consider two charges distributed in the space, the force between them can be
+calculated with the Coulomb's law.
+
+The concept of electric field emerges.
+
+$\vec{E}(\vec{r},t) \equiv \hat{e}|E(\vec{r},t)|$.
+
+$\vec{E}(\vec{r},t) \equiv (E_{x}(\vec{r},t),E_{y}(\vec{r},t),E_{z}(\vec{r},t))$.
+
+* What rules does electromagnetic wave have to follow? --- The Maxwell's equations.
+\begin{equation}
+\begin{split}
+\vec{\nabla} \cdot \vec{B} &= 0, \\
+\vec{\nabla} \times \vec{E} &= -\partial_{t}\vec{B}, \\
+\vec{\nabla} \cdot \vec{E} &= 0, \\
+\vec{\nabla} \times \vec{B} &= \mu_{0}\varepsilon_{0}\partial_{t}\vec{E}. \\
+\end{split}
+\end{equation}
+
+The divergence of the curl of any vector field is 0, i.e.,
+$\vec{\nabla}\cdot(\vec{\nabla}\times\vec{w}) = 0$.
+
+\begin{equation}
+\vec{B} = \vec{\nabla}\times\vec{A}.
+\end{equation}
+\begin{equation}
+\vec{\nabla}\times(\vec{E}+\partial_{t}\vec{A}) = 0.
+\end{equation}
+
+The curl of the gradient of any scalar field is 0, i.e., $\vec{\nabla} \times
+(\vec{\nabla}\Lambda)=0$.
+\begin{equation}
+\vec{E} + \partial_{t}\vec{A} = -\vec{\nabla}\phi,
+\end{equation}
+
+We only require the curl of $\vec{A}$ to be $\vec{B}$, so in the condition that
+$\vec{E}$ and $\vec{B}$ are invariance, we can make gauge transformation[fn::
+Check  郭硕鸿's /电动力学/ for more details.]:
+\begin{equation}
+\begin{split}
+\vec{A} &\rightarrow \vec{A}' = \vec{A} + \vec{\nabla}\psi \\
+\phi    &\rightarrow \phi' = \phi - \partial_{t}\psi
+\end{split}
+\end{equation}
+
+In Coulomb gauge, i.e., $\vec{\nabla}\cdot\vec{A}=0$,
+\begin{equation}
+\vec{\nabla} \cdot \vec{E} = - \vec{\nabla}^{2}\phi - \partial_{t}(\vec{\nabla}\cdot\vec{A}) = -\vec{\nabla}^{2}\phi = 0 \Rightarrow \phi = 0.
+\end{equation}
+\begin{equation}
+\vec{\nabla}\times(\vec{\nabla}\times\vec{A}) = -{\vec{\nabla}}^{2}\vec{A}+\vec{\nabla}\cdot(\vec{\nabla}\cdot\vec{A}) = \mu_{0}\varepsilon_{0}\partial_{t}(-\partial_{t}\vec{A}-\vec{\nabla}\phi),
+\end{equation}
+i.e., the wave equation:
+\begin{equation}
+(c^{2}\vec{\nabla}^{2}-\partial_{t}^{2})\vec{A}(\vec{r},t) = 0.
+\end{equation}
+
+* Real life wave is complicated, but it can be factorized.
+The plane wave $\hat{a}|A|e^{i(\vec{k}\cdot\vec{r}-\omega t)}$ is a valid
+solution of the wave equation. What more, any real function can be expanded into
+a series of fourier series. [fn:: This is the problem of the completeness of the
+fourier series, check Chap. 9 of Hassani's /Mathematical Physics/ for more
+details.] So any solution $\vec{A}(\vec{r},t)$ of the wave equaion above can be
+expressed as
+\begin{equation}
+\label{eq:1}
+\vec{A}(\vec{r},t) = \hat{a}\sum_{k}|A_{k}|e^{i(\vec{k}\cdot\vec{r}-\omega_{k} t)}.
+\end{equation}
+
+#+CAPTION: Use a series of trigonometric functions to simulate the square wave
+#+ATTR_LATEX: :width 1.5in :float
+[[../figs/square_wave_fourier.png]]
+
+Due to the properties of the wave function, it can be factorized into three wave
+equations belong to the x, y and z direction seperately, i.e.,
+\begin{equation}
+(c^{2}\partial_{i}^{2} - \partial_{t}^{2})\vec{A}(i,t) = 0,\quad i=x,\ y\text{ or }z.
+\end{equation}
+
+And due to $\vec{A}=0$, light is a transverse wave. If we choose the propagation
+direction to be z, then the polarization direction can only be x or y. So, in
+the most easy situation, we may deal with a wave which propagetes along the z
+direction and its polarization direction is along the x direction. Then we have
+\begin{equation}
+\label{eq:2}
+(c^{2}\partial_{z}^{2} - \partial_{t}^{2})\vec{A}(z,t) = 0,
+\end{equation}
+\begin{equation}
+\label{eq:3}
+\vec{A}(z,t) = \hat{e}_{x}\sum_{k}|A_{k}|e^{i(kz-\omega_{k} t)} = \hat{e}_{x}\sum_{k}|A_{k}|q_{k}(t)e^{ikz}.
+\end{equation}
+
+If we consider one mode at a time, i.e., the term with same $|k|$, we have
+\begin{equation}
+\vec{A}(z,t) = \hat{e}_{x}(|A_{k}|q_{k}(t)e^{ikz}+|A_{-k}|q_{-k}(t)e^{-ikz}).
+\end{equation}
