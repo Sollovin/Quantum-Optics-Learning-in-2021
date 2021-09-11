@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Description](#orgc1fbcf7)
+1.  [Description](#orgb9eb1c4)
 
 
 
-<a id="orgc1fbcf7"></a>
+<a id="orgb9eb1c4"></a>
 
 # Description
 
@@ -13,14 +13,14 @@ In this semester, I will lead you guys together to learn the Quantum Optics
 lectures teached by [Prof. Carlos Navarrete-Benlloch](https://www.carlosnb.com/) from Shanghai Jiao Tong
 University.
 
-We will use the the [Lecture Notes](https://gitee.com/sollovin/quantum-optics-learning-in-2021/blob/master/courceware/LectureNotes-IntroductionToQuantumOptics_SpringSemester2021.pdf) provided by Prof. Carlos as our textbook. And
+We will use the the [Lecture Notes](https://www.carlosnb.com/quantum-optics-course) provided by Prof. Carlos as our textbook. And
 I think I will try to make the cource self-consistent enough so that you don&rsquo;t
 need to spend extra time reading materials before every class. But for a better
 understanding of the cources, it may be worthwhile for you to spend extra time
 to read materials or do some derivations after class.
 
 If you find any question during the cources, you are encouranged to raise it in
-the [Issues](https://gitee.com/sollovin/quantum-optics-learning-in-2021/issues) function accompanied with the repository so that others can join the
+the [Issues](https://github.com/Sollovin/Quantum-Optics-Learning-in-2021/issues) function accompanied with the repository so that others can join the
 discussion easily and the discussion will also be recorded for future review.
 
 Materials:
