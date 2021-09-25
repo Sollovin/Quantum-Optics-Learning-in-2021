@@ -1,11 +1,11 @@
 
 # Table of Contents
 
-1.  [Description](#orgb9eb1c4)
+1.  [Description](#org6494e85)
 
 
 
-<a id="orgb9eb1c4"></a>
+<a id="org6494e85"></a>
 
 # Description
 
@@ -33,6 +33,8 @@ Materials:
     `/home/wangtao/ljt_group/Lectures on Quantum Optics - 2020` folder.
 -   The notes I write for the cource are put in the [notes](https://github.com/Sollovin/Quantum-Optics-Learning-in-2021/tree/master/notes) folder in the
     repository.
+-   If you need a textboot for reference, *Quantum Optics* written by Scully and
+    Zubairy is recommended.
 -   If any other materials are need, I will upload to here in time.
 
 Finally, have fun with the cources and thanks to Prof. Carlos for the excellent
