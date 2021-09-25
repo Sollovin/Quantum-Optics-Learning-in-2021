@@ -1,0 +1,32 @@
+#+TITLE: Section 03: Wigner Function
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[b5paper, landscape, margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=blue,filecolor=magenta,urlcolor=cyan}
+
+
+The way I taught this part follows [[https://nbi.ku.dk/english/theses/bachelor-theses/jon-brogaard/Jon_Brogaard_Bachelorthesis_2015.pdf][this paper]]. So if you want to review it,
+you are encouraged to read it. What's more, if you want to learn more knowledge
+about the wigner function, you can set the references of that paper as your
+start point.
+
+Examples:
+ - Number state $\ket{0}$, $\ket{1}$ and $\ket{5}$
+
+   #+ATTR_LATEX: :width 2in :float
+   #+ATTR_HTML: :width 300px
+   #+ATTR_ORG: :width 300
+   [[../figs/wigner_func-number_state.jpg]]
+ - An time evolved coherent state
+
+   #+ATTR_LATEX: :width 2in :float
+   #+ATTR_HTML: :width 300px
+   #+ATTR_ORG: :width 300
+   [[../figs/wigner_func-coherent_state.gif]]
+ - An cat state
+
+   #+ATTR_LATEX: :width 2in :float
+   #+ATTR_HTML: :width 300px
+   #+ATTR_ORG: :width 300
+   [[../figs/wigner_func-cat_state.gif]]
