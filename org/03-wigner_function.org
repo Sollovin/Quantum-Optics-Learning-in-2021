@@ -6,10 +6,10 @@
 #+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=blue,filecolor=magenta,urlcolor=cyan}
 
 
-The way I taught this part follows [[https://nbi.ku.dk/english/theses/bachelor-theses/jon-brogaard/Jon_Brogaard_Bachelorthesis_2015.pdf][this paper]]. So if you want to review it,
-you are encouraged to read it. What's more, if you want to learn more knowledge
-about the wigner function, you can set the references of that paper as your
-start point.
+The way I taught this part follows this paper --- [[https://nbi.ku.dk/english/theses/bachelor-theses/jon-brogaard/Jon_Brogaard_Bachelorthesis_2015.pdf][Wigner function formalism in
+Quantum mechanics]]. So if you want to review it, you are encouraged to read it.
+What's more, if you want to learn more knowledge about the wigner function, you
+can set the references of that paper as your start point.
 
 Examples:
  - Number state $\ket{0}$, $\ket{1}$ and $\ket{5}$
