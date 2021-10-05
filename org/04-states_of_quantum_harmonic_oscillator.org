@@ -1,1 +1,375 @@
 #+TITLE: Section 04: States Of Quantum Harmonic Oscillator
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[b5paper, landscape, margin=1in]{geometry}
+
+* Coherent State
+** Definition
+We will start with the definition that the coherent state $\ket{\alpha}$ is the
+eigenstate of the annihilator operater $\hat{a}$ with eigenvalue $\alpha$. Thus
+\begin{equation}
+\label{eq:1}
+\hat{a} \ket{\alpha} = \alpha \ket{\alpha}.
+\end{equation}
+
+Then we express the coherent state as the linear combinition of the number
+state, i.e., $\ket{\alpha} \equiv \sum_{n=0}^{\infty} c_{n}\ket{n}$, and
+substituet it into the left and right side of the equaton above. What we will
+obtain after some calculation is the recurrence relation of $c_{n}$, which is
+\begin{equation}
+\label{eq:2}
+c_{n+1}\sqrt{n+1} = c_{n}\alpha.
+\end{equation}
+Then we knew,
+\begin{equation}
+\label{eq:3}
+c_{n} = \frac{\alpha^{n}}{\sqrt{n!}}c_{0},
+\end{equation}
+and
+\begin{equation}
+\label{eq:4}
+\ket{\alpha} = \sum_{n=0}^{\infty}\frac{\alpha^{n}}{\sqrt{n!}}c_{0}\ket{n}.
+\end{equation}
+
+To determine the value of $c_{0}$, we employ the property $\ev{\alpha} = 1$, and
+get
+\begin{equation}
+\label{eq:5}
+\abs{c_{0}} = e^{-(\alpha\alpha^{*})^{1/2}},
+\end{equation}
+and
+\begin{equation}
+\label{eq:6}
+\begin{split}
+\ket{\alpha} &= e^{-\abs{\alpha}^{2}/2}\sum_{n=0}^{\infty}\frac{\alpha^{n}}{\sqrt{n!}}\ket{n} \\
+&= e^{-\abs{\alpha}^{2}/2}\sum_{n=0}^{\infty}\frac{\alpha^{n}}{\sqrt{n!}}\pqty{\hat{a}^{\dagger}}^{n}\ket{n} \\
+&= e^{-\abs{\alpha}^{2}/2}e^{\alpha \hat{a}^{\dagger}}\ket{0} \\
+&= e^{-\abs{\alpha}^{2}/2}e^{\alpha \hat{a}^{\dagger}}\cdot e^{-\alpha^{**}\hat{a}}\ket{0} \\
+&= e^{\alpha \hat{a}^{\dagger} - \alpha^{**}\hat{a}}\ket{0},
+\end{split}
+\end{equation}
+in which, we use the expansion rule of the exponent of a operator $e^{\hat{A}} =
+\sum_{n=0}^{\infty}\hat{A}^{n}/n!$ and the weaker form of the Baker-Campbell-Haussdorf lemma, which
+says if operator $\hat{A}$ and $\hat{B}$ both commute with their commutator, then
+\begin{equation}
+\label{eq:8}
+e^{\hat{A}+\hat{B}} = e^{-[\hat{A},\hat{B}]/2}e^{\hat{A}}e^{\hat{B}}.
+\end{equation}
+
+By convention, we define the displacement operator which generate a coherent
+state with eigenvalue $\alpha$ from the vacuum state as follows
+\begin{equation}
+\label{eq:9}
+\hat{D}(\alpha) \equiv e^{\alpha \hat{a}^{\dagger} - \alpha^{*}\hat{a}}.
+\end{equation}
+
+** Expectation and variance
+Define the quadratures as follows,
+\begin{equation}
+\label{eq:10}
+X_{1} = \frac{x}{\hbar/2m\omega} \qq{and} X_{2} = \frac{p}{\sqrt{m\omega\hbar/2}},
+\end{equation}
+now we want to calculate the expectation value and the variance of the quadratures
+of the coherent state.
+
+Recall that $\ket{\alpha} = \hat{D}(\alpha) \ket{0}$, the expectation value of
+$X_{1}$ can be written as
+\begin{equation}
+\label{eq:11}
+\ev{\hat{X}_{1}}_{\ket{\alpha}} = \expval{\hat{D}^{\dagger}(\alpha)\hat{X}_{1}\hat{D}(\alpha)}_{\ket{0}}.
+\end{equation}
+
+Using the Baker-Campbell-Haussdorf lemma, which says
+\begin{equation}
+\label{eq:7}
+e^{\hat{A}}\hat{B}e^{\hat{A}} = \sum_{n=0}^{\infty}\frac{1}{n!}[\hat{A},[\hat{A},\dots,[\hat{A},\hat{B}],\dots,],],
+\end{equation}
+we can prove that
+\begin{equation}
+\label{eq:12}
+\hat{D}^{\dagger}(\alpha)\hat{X}_{1}\hat{D}(\alpha) = \hat{X}_{1} + 2\mathrm{Re}\qty{\alpha}.
+\end{equation}
+
+Thus,
+\begin{equation}
+\label{eq:14}
+\ev{\hat{X}_{1}}_{\ket{\alpha}} = \ev{\hat{X}_{1}}_{\ket{0}} + 2\mathrm{Re}\qty{\alpha},
+\end{equation}
+which means the expectation value of $X_{1}$ of the coherent state is just the
+expectation value of $X_{1}$ of the vacuum state plus a constant relates to the
+real part of the eigenvalue of the coherent state.
+
+As same as above, we can prove
+\begin{equation}
+\label{eq:13}
+\hat{D}^{\dagger}(\alpha)\hat{X}_{2}\hat{D}(\alpha) = \hat{X}_{2} + 2\mathrm{Im}\qty{\alpha}.
+\end{equation}
+
+Now we have to calculate the expectation value of the quadratures of the vacuum
+state. Here, we use the wigner function to calculate it. Recall that the wigner
+function of the vacuum state is
+\begin{equation}
+\label{eq:15}
+W_{0}(x,p) = \frac{1}{\pi\hbar}e^{-\frac{x^{2}}{2l^{2}}-frac{l^{2}p^{2}}{\hbar^{2}}},
+\end{equation}
+and one property of the wigner function is
+\begin{equation}
+\label{eq:16}
+\ev{\hat{x}^{(m)}\hat{p}^{(n)}} = \iint\dd x\dd p W(x,p)x^{(m)}p^{(n)},
+\end{equation}
+we have the following results
+\begin{equation}
+\label{eq:17}
+\ev{\hat{x}}_{\ket{0}} = \ev{\hat{p}}_{\ket{0}} = 0,\quad \ev{\hat{x}^{2}}_{ket{0}} = \frac{\hbar}{2\omega},\quad \ev{\hat{p}^{2}}_{\ket{0}} = \frac{\hbar\omega}{2}.
+\end{equation}
+
+Thus,
+\begin{equation}
+\label{eq:18}
+\ev{\hat{X}_{1}}_{\ket{\alpha}} = 2\mathrm{Re}\qty{\alpha}\qq{and} \ev{\hat{X}_{2}}_{\ket{\alpha}} = 2\mathrm{Im}\qty{\alpha},
+\end{equation}
+which means for coherent state the central position of the wigner function is
+$(2\mathrm{Re}\qty{\alpha},2\mathrm{Im}\qty{\alpha})$.
+
+If we calculate the variance of the quadratures of the coherent state as above,
+we will find that
+\begin{equation}
+\label{eq:19}
+\ev{\Delta \hat{X}_{1}}_{\ket{\alpha}} = \ev{\Delta \hat{X}_{1}}_{\ket{0}}\qq{and} \ev{\Delta \hat{X}_{2}}_{\ket{\alpha}} = \ev{\Delta \hat{X}_{2}}_{\ket{0}},
+\end{equation}
+which means the uncertainty of the quadratures of the coherent state is the the
+same as the vacuum state's, and because the vacuum state is a minimal
+uncertainty state (which means $\ev{\Delta \hat{X}_{1}}\ev{\Delta \hat{X}_{2}} =
+\frac{1}{2}$), the coherent state is also a minimal uncertainty state.
+
+** Time evolution
+We discuss the time evolution of the coherent state by introducing the time
+evolution operator
+\begin{equation}
+\label{eq:20}
+\hat{U} = e^{i\hat{H}t/\hbar},
+\end{equation}
+which gives out the relation between the states at different time, i.e.,
+\begin{equation}
+\label{eq:21}
+\ket{\alpha(t)} = \hat{U}\ket{\alpha(0)}.
+\end{equation}
+
+It can be proved that,
+\begin{equation}
+\label{eq:22}
+\pmqty{\hat{U}^{\dagger}\hat{X}_{1}\hat{U} \\ \hat{U}^{\dagger}\hat{X}_{2}\hat{U}} = \pmqty{\cos{\omega t} & \sin{\omega t} \\ -\sin{\omega t} & \cos{\omega t}} \pmqty{\hat{X}_{1} \\ \hat{X}_{2}},
+\end{equation}
+which gives out the following
+\begin{equation}
+\label{eq:23}
+\pmqty{\ev{\hat{X}_{1}(t)} \\ \ev{\hat{X}_{2}(t)}} =
+\pmqty{\cos{\omega t} & \sin{\omega t} \\ -\sin{\omega t} & \cos{\omega t}}
+\pmqty{\ev{\hat{X}_{1}(0)} \\ \ev{\hat{X}_{2}(0)}},
+\end{equation}
+\begin{equation}
+\label{eq:24}
+\ev{\Delta \hat{X}_{1}(t)} = \ev{\Delta \hat{X}_{1}(0)} \qq{and} \ev{\Delta \hat{X}_{2}(t)} = \ev{\Delta \hat{X}_{2}(0)},
+\end{equation}
+which means that the central position of the wigner function of the coherent
+state will make an uniform circular motion and variance of the coherent state
+keeps as a constant. This can be related with the image of the time evolution of
+the wigner function as follows,
+
+[[../figs/wigner_func-coherent_state.gif]]
+
+** Properties
+1. The average number is given by
+   \begin{equation}
+   \label{eq:25}
+   \ev{\hat{n}}_{\ket{\alpha}} = \bra{\alpha}\hat{a}^{\dagger}\hat{a}\ket{\alpha} = \abs{\alpha}^{2}.
+   \end{equation}
+2. The state distribution in the number state presentation is
+   \begin{equation}
+   \label{eq:26}
+   P_{n} = \abs{\braket{n}{\alpha}}^{2} = e^{-\abs{\alpha}^{2}} \frac{\abs{\alpha}^{2n}}{n!},
+   \end{equation}
+   which is exactly the Poisson distribution $f(n,\abs{\alpha}^{2})$.
+
+   [[../figs/poisson_distri.jpg]]
+3. The coherent state is a minimal uncertainty state, which is impied by the
+   equal
+   \begin{equation}
+   \label{eq:27}
+   \ev{\Delta \hat{X}_{1}}\ev{\Delta \hat{X}_{2}} = \frac{1}{2}.
+   \end{equation}
+4. The coherent state is complete, i.e.,
+   \begin{equation}
+   \label{eq:28}
+   \frac{1}{\pi}\int\dd^{2}\alpha\dyad{\alpha} = 1.
+   \end{equation}
+5. The overlaps of two coherent state is given by
+   \begin{equation}
+   \label{eq:29}
+   \begin{split}
+   \braket{\alpha}{\alpha'} &= \ev{\hat{D}^{\dagger}(\alpha)\hat{D}(\alpha')}{0} = \ev{\hat{D}(\alpha' - \alpha)}{0} = \braket{0}{\alpha' - \alpha} \\
+    &= \exp(-\frac{1}{2}\abs{\alpha}^{2} + \alpha'\alpha^{*} - \frac{1}{2}\abs{\alpha'}^{2}) = \exp(-\abs{\alpha-\alpha'}^{2}).
+   \end{split}
+   \end{equation}
+6.
+   \begin{equation}
+   \label{eq:30}
+   \ket{\alpha} = \frac{1}{\pi}\int\dd^{2}\alpha'\ket{\alpha'}\braket{\alpha'}{\alpha} = \frac{1}{\pi}\int\dd^{2}\alpha'\ket{\alpha'}\exp(-\abs{\alpha' - \alpha}^{2}),
+   \end{equation}
+   which means that a coherent state $\ket{\alpha}$ can be represented by other
+   coherent state $\ket{\alpha'}$, thus the coherent states is overcomplete.
+
+* Squeezing state
+** Definition
+As the displacement operator generate a coherent state from the vacuum state,
+the squeezing state is generated by a squeezing operator which has the following
+form
+\begin{equation}
+\label{eq:31}
+\hat{S}(z) = e^{(z^{*}\hat{a}^{2} - z(\hat{a}^{\dagger})^{2})/2},\qq z \equiv re^{i\theta} \in C.
+\end{equation}
+
+It's easy to see that
+\begin{equation}
+\label{eq:32}
+\hat{S}^{\dagger}(z)\hat{a}\hat{S}(z) = \hat{a}\cosh{r} - e^{i\theta}\hat{a}^{\dagger}\sinh{r}.
+\end{equation}
+
+Now we define the squeezed coherent state as
+\begin{equation}
+\label{eq:33}
+\ket{\alpha,z} = \hat{S}(z)\hat{D}(\alpha)\ket{0},
+\end{equation}
+and we can check that
+\begin{equation}
+\label{eq:34}
+\begin{split}
+\ev{\hat{a}} &= \ev{a}{\alpha,z} \\
+&= \ev{\hat{D}^{\dagger}(\alpha)\hat{S}^{\dagger}(z)\hat{a}\hat{S}(z)\hat{D}(\alpha)}{0} \\
+&= \ev{\hat{a}\cosh{r} - e^{i\theta}\hat{a}^{\dagger}\sinh{r}}{\alpha}\\
+&= \alpha\cosh{r} - \alpha^{*}r^{i\theta}\sinh{r},
+\end{split}
+\end{equation}
+\begin{equation}
+\label{eq:35}
+\begin{split}
+\ev{\hat{a}^{2}} &= \ev{\hat{S}^{\dagger}(z)\hat{a}\hat{S}(z)\hat{S}^{\dagger}(z)\hat{a}\hat{S}(z)}{\alpha} \\
+&= \alpha^{2}\cosh^{2}{r} + (\alpha^{*})^{2}e^{i\theta}\sinh^{2}{r} - 2\abs{\alpha}^{2}e^{i\theta}\sinh{r}\cosh{r} - e^{i\theta}\cosh{r}\sinh{r},
+\end{split}
+\end{equation}
+and
+\begin{equation}
+\label{eq:36}
+\ev{\hat{a}^{\dagger}\hat{a}} = \abs{\alpha}^{2}\pqty{\cosh^{2}{r} + \sinh^{2}{r}} - \pqty{\alpha^{*}}^{2}e^{i\theta}\cosh{r}\sinh{r} - \alpha^{2}e^{-i\theta}\sinh{r}\cosh{r} + \sinh^{2}{r}.
+\end{equation}
+
+Recall that $\hat{X}_{1} = \hat{a}^{\dagger} + \hat{a}$ and $\hat{X}_{2} =
+i(\hat{a}^{\dagger} - \hat{a})$, consider a $\frac{\theta}{2}$ rotation of
+$\hat{X}_{1}$ and $\hat{X}_{2}$, we have
+\begin{equation}
+\label{eq:35}
+\pmqty{\hat{Y}_{1} \\ \hat{Y}_{2}} =
+\pmqty{\cos{\theta/2} & \sin{\theta/2} \\ -\sin{\theta/2} & \cos{\theta/2}}
+\pmqty{\hat{X}_{1} \\ \hat{X}_{2}},
+\end{equation}
+i.e.,
+\begin{equation}
+\label{eq:37}
+\begin{split}
+&\hat{Y}_{1} + i\hat{Y}_{2} = (\hat{X}_{1} + i\hat{X}_{2})e^{-i\theta/2} \\
+\Rightarrow &\hat{Y}_{1} + i\hat{Y}_{2} = \hat{a}e^{-i\theta/2} \\
+\Rightarrow &\hat{Y}_{1} = \hat{a}e^{-i\theta/2} + \hat{a}^{\dagger}e^{i\theta/2} \qq{and} \hat{Y}_{2} = \cdots.
+\end{split}
+\end{equation}
+
+Thus we have
+\begin{equation}
+\label{eq:38}
+\ev{\Delta \hat{Y}_{1}^{2}} = \ev{\hat{Y}_{1}^{2}} - \ev{\hat{Y}_{1}}^{2} = \frac{1}{4}e^{-2r},
+\end{equation}
+\begin{equation}
+\label{eq:38}
+\ev{\Delta \hat{Y}_{2}^{2}} = \frac{1}{4}e^{2r},
+\end{equation}
+\begin{equation}
+\label{eq:38}
+\ev{\Delta \hat{Y}_{1}}\ev{\Delta \hat{Y}_{2}} = \frac{1}{4},
+\end{equation}
+which means that the a squeezing operator $\hat{S}(z)$ with $z=re^{i\theta}$
+will squezze the variance along $Y_{1}$ direction and stretch the variance along
+$Y_{2}$, the squeezing intensity is determined by $r$ and the direction is
+determined by $\theta$.
+
+** Properties
+1.
+    \begin{equation}
+    \label{eq:39}
+    \hat{S}(z)\ket{0} = \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2^{n}n!} \sqrt{\frac{(2n)!}{\cosh{r}}} e^{in\theta} \tanh^{n}{r} \ket{2n}.
+    \end{equation}
+2.
+   \begin{equation}
+   \label{eq:40}
+   \frac{\ev{\hat{n}}}{\ev{\Delta \hat{n}}} = \frac{\sinh^{2}{r}}{\sqrt{\sinh^{4}{r}+\sinh^{2}{r}+\frac{1}{4}\sinh^{2}{2r}}} \stackrel{r\rightarrow\infty}{\longrightarrow} 1/\sqrt{2},
+   \end{equation}
+   which means that the variance of the number is always the same order of their
+   mean value.
+
+* Thermal state
+** Definition
+We start with the definition that thermal state is the state with maximum
+entropy and find the representation of thermal state with the Lagrange
+multiplier method.
+
+The Lagrange function of the density operator is defined as follows
+\begin{equation}
+\label{eq:41}
+L[\hat{\rho}] = -\tr\qty{\hat{\rho}\ln{\hat{\rho}}} + \lambda(1 - \tr\qty{\hat{\rho}}) + \beta(\bar{E} - \tr\qty{\hat{H}\hat{\rho}}).
+\end{equation}
+
+The thermal state density operator satisfies
+\begin{equation}
+\label{eq:42}
+\delta L = L[\hat{\rho} + \delta\hat{\rho}] - L[\hat{\rho}] = -\tr\qty{\delta\hat{\rho}(\ln{\hat{\rho}}+1+\lambda+\beta\hat{H})} = 0,
+\end{equation}
+which gives out
+\begin{equation}
+\label{eq:43}
+\hat{\rho}_{\mathrm{th}} = e^{-(\lambda+1)} e^{-\beta \hat{H}}.
+\end{equation}
+
+Notice that $\tr\qty{\hat{\rho}} = 1$, we have
+\begin{equation}
+\label{eq:44}
+\hat{\rho}_{\mathrm{th}} = e^{-\beta \hat{H}} / \tr\qty{e^{-\beta \hat{H}}}.
+\end{equation}
+
+** Properties
+1.
+    \begin{equation}
+    \label{eq:45}
+    \bar{E} = \frac{\tr\qty{\hat{H}\exp(-\beta \hat{H})}}{\tr\qty{\exp(-\beta \hat{H})}} = -\partial_{\beta}\ln\qty[\tr\qty{e^{-\beta \hat{H}}}] = -\partial_{\beta}\ln\qty[\sum_{n}e^{-\beta E_{n}}].
+    \end{equation}
+2.
+    \begin{equation}
+    \label{eq:46}
+    P(E_{n}) = \ev{\hat{\rho}_{\mathrm{th}}}{E_{n}} = e^{-\beta E_{n}}/Z,\quad Z = \sum_{n}e^{-\beta E_{n}},
+    \end{equation}
+    which is the Boltzmann distribution.
+3. Thermal state has $\sqrt{2\bar{n}+1}$ times more uncertainty than vacuum state.
+4. For harmonic oscillator,
+   -
+      \begin{equation}
+      \label{eq:47}
+      E_{n} = \hbar\omega(n+\frac{1}{2}),\quad Z = \frac{e^{-\beta\hbar\omega/2}}{1 - e^{-\beta\hbar\omega}}.
+      \end{equation}
+   -
+      \begin{equation}
+      \label{eq:48}
+      \bar{n} = \frac{1}{e^{\beta\hbar\omega} - 1},
+      \end{equation}
+      which is the Bose-Einstein distribution for an equillibrium temperature $T=1/k_{\mathrm{B}}\beta$.
+   -
+     \begin{equation}
+     \label{eq:49}
+     \hat{\rho}_{\mathrm{th}}(\bar{n}) = \sum_{n=0}^{\infty}\frac{\bar{n}^{n}}{(1+\bar{n})^{1+n}}\dyad{n}.
+     \end{equation}
